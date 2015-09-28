@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   # also update locale/gemspec.rb
   s.description = 'TODO: Description of ForemanPluginTemplate.'
 
-  s.files = Dir['{app,config,db,lib,locale}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
+  s.files = Dir['{app,config,db,lib,locale}/**/*'] + ['LICENSE', 'Rakefile', 'DEVELOPMENT.md']
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'deface'

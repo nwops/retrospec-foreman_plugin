@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.email = "you@somebody.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
-    "README.md"
+    "DEVELOPMENT.md"
   ]
   s.files = [
     ".rspec",
@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
-    "README.md",
+    "DEVELOPMENT.md",
     "Rakefile",
     "VERSION",
     "lib/retrospec-foreman_plugin.rb",
@@ -34,8 +34,8 @@ Gem::Specification.new do |s|
     "lib/retrospec/plugins/v1/plugin/templates/module_files/.tx/config",
     "lib/retrospec/plugins/v1/plugin/templates/module_files/Gemfile",
     "lib/retrospec/plugins/v1/plugin/templates/module_files/LICENSE",
+    "lib/retrospec/plugins/v1/plugin/templates/module_files/DEVELOPMENT.md",
     "lib/retrospec/plugins/v1/plugin/templates/module_files/README.md",
-    "lib/retrospec/plugins/v1/plugin/templates/module_files/README.plugin.md",
     "lib/retrospec/plugins/v1/plugin/templates/module_files/Rakefile",
     "lib/retrospec/plugins/v1/plugin/templates/module_files/app/controllers/.gitkeep",
     "lib/retrospec/plugins/v1/plugin/templates/module_files/app/controllers/foreman_plugin_template/hosts_controller.rb",
@@ -59,7 +59,7 @@ Gem::Specification.new do |s|
     "lib/retrospec/plugins/v1/plugin/templates/module_files/locale/en/foreman_plugin_template.po",
     "lib/retrospec/plugins/v1/plugin/templates/module_files/locale/foreman_plugin_template.pot",
     "lib/retrospec/plugins/v1/plugin/templates/module_files/locale/gemspec.rb",
-    "lib/retrospec/plugins/v1/plugin/templates/module_files/rename.rb",
+    "lib/retrospec/plugins/v1/plugin/templates/module_files/foreman_helpers.rb",
     "lib/retrospec/plugins/v1/plugin/templates/module_files/test/factories/foreman_plugin_template_factories.rb",
     "lib/retrospec/plugins/v1/plugin/templates/module_files/test/test_plugin_helper.rb",
     "lib/retrospec/plugins/v1/plugin/templates/module_files/test/unit/foreman_plugin_template_test.rb",

@@ -16,7 +16,7 @@ module Foreman
       @module_path
     end
 
-    def module_name
+    def plugin_name
       instance[:name]
     end
   end

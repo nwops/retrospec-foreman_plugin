@@ -1,7 +1,6 @@
 How to Create a Plugin
 ======================
 
-{{toc}}
 
 This goal of this tutorial is to help users quickly and easily create Foreman plugins. This is not an exhaustive tutorial of [Ruby on Rails] or an explanation of how [rails engines] work.
 

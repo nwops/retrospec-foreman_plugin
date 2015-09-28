@@ -3,12 +3,13 @@ require 'retrospec'
 
 describe "foreman_plugin" do
   let(:plugin) do
-    Retrospec::Plugins::V1::ForemanPlugin.new('/tmp/testplugin_dir', {:name => 'testplugin', :config1 => 'test'})
+    Retrospec::Plugins::V1::ForemanPlugin.new('/tmp/testplugin_dir', {:name => 'foreman_testplugin', :config1 => 'test'})
   end
 
   it "can create plugin instance" do
     expect(plugin).to be_a Retrospec::Plugins::V1::ForemanPlugin
   end
+
 
   it 'can get config data' do
     expect(plugin.config_data[:config1]).to eq('test')
@@ -19,7 +20,7 @@ describe "foreman_plugin" do
   end
 
   it 'can get module name' do
-    expect(plugin.context.module_name).to eq('testplugin')
+    expect(plugin.context.plugin_name).to eq('foreman_testplugin')
   end
 
   it 'can run without error' do
