@@ -51,8 +51,8 @@ module Retrospec
           # Should you need to change the file name of the copied file you will have to move
           # the file outside of the module_files directory and
           # render it using: safe_create_template_file(file_path, template, context)
-          rename_files(module_path, context.plugin_name)
           replace_template_name(module_path, context.plugin_name)
+          rename_files(module_path, context.plugin_name)
           cleanup(module_path, context.plugin_name)
 
         end
