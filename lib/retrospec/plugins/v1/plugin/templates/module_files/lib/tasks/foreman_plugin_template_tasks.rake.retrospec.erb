@@ -1,0 +1,49 @@
+# Tasks
+namespace :<%= plugin_name %> do
+  namespace :example do
+    desc 'Example Task'
+    task task: :environment do
+      # Task goes here
+    end
+  end
+end
+
+# Tests
+namespace :test do
+  desc 'Test <%= plugin_name_camel %>'
+  Rake::TestTask.new(:<%= plugin_name %>) do |t|
+    test_dir = File.join(File.dirname(__FILE__), '../..', 'test')
+    t.libs << ['test', test_dir]
+    t.pattern = "#{test_dir}/**/*_test.rb"
+    t.verbose = true
+  end
+end
+
+namespace :<%= plugin_name %> do
+  task :rubocop do
+    begin
+      require 'rubocop/rake_task'
+      RuboCop::RakeTask.new(:rubocop_<%= plugin_name %>) do |task|
+        task.patterns = ["#{<%= plugin_name_camel %>::Engine.root}/app/**/*.rb",
+                         "#{<%= plugin_name_camel %>::Engine.root}/lib/**/*.rb",
+                         "#{<%= plugin_name_camel %>::Engine.root}/test/**/*.rb"]
+      end
+    rescue
+      puts 'Rubocop not loaded.'
+    end
+
+    Rake::Task['rubocop_<%= plugin_name %>'].invoke
+  end
+end
+
+Rake::Task[:test].enhance do
+  Rake::Task['test:<%= plugin_name %>'].invoke
+end
+
+load 'tasks/jenkins.rake'
+if Rake::Task.task_defined?(:'jenkins:unit')
+  Rake::Task['jenkins:unit'].enhance do
+    Rake::Task['test:<%= plugin_name %>'].invoke
+    Rake::Task['<%= plugin_name %>:rubocop'].invoke
+  end
+end

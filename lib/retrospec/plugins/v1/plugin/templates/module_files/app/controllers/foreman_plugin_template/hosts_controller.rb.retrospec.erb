@@ -1,11 +1,11 @@
-module ForemanPluginTemplate
+module <%= plugin_name_camel %>
   # Example: Plugin's HostsController inherits from Foreman's HostsController
   class HostsController < ::HostsController
     # change layout if needed
-    # layout 'foreman_plugin_template/layouts/new_layout'
+    # layout '<%= plugin_name %>/layouts/new_layout'
 
     def new_action
-      # automatically renders view/foreman_plugin_template/hosts/new_action
+      # automatically renders view/<%= plugin_name %>/hosts/new_action
     end
   end
 end
