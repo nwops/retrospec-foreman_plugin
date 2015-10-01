@@ -23,7 +23,7 @@ module Retrospec
 
         def validate_name(name)
           unless name =~ /^foreman_/
-            puts "The name of the plugin must start with foreman_  yours starts with #{name}"
+            puts "The name of the plugin must start with foreman_ , yours starts with #{name}"
             exit -1
           end
           if name == name.camel_case
@@ -51,10 +51,38 @@ module Retrospec
           # Should you need to change the file name of the copied file you will have to move
           # the file outside of the module_files directory and
           # render it using: safe_create_template_file(file_path, template, context)
-          replace_template_name(module_path, context.plugin_name)
-          rename_files(module_path, context.plugin_name)
           cleanup(module_path, context.plugin_name)
+        end
 
+
+        # creates any file that is contained in the templates/modules_files directory structure
+        # loops through the directory looking for erb files or other files.
+        # strips the erb extension and renders the template to the current module path
+        # filenames must named how they would appear in the normal module path.  The directory
+        # structure where the file is contained
+        def safe_create_module_files(template_dir, module_path, spec_object)
+          templates = Find.find(File.join(template_dir,'module_files')).sort
+          templates.each do |template|
+            dest = template.gsub(File.join(template_dir,'module_files'), module_path)
+            if dest =~ /foreman_plugin_template/i
+              dest = dest.gsub('foreman_plugin_template', spec_object.plugin_name)
+            end
+            if File.symlink?(template)
+              safe_create_symlink(template, dest)
+            elsif File.directory?(template)
+              safe_mkdir(dest)
+            else
+              # because some plugins contain erb files themselves any erb file will be copied only
+              # so we need to designate which files should be rendered with .retrospec.erb
+              if template =~ /\.retrospec\.erb/
+                # render any file ending in .retrospec_erb as a template
+                dest = dest.gsub(/\.retrospec\.erb/, '')
+                safe_create_template_file(dest, template, spec_object)
+              else
+                safe_copy_file(template, dest)
+              end
+            end
+          end
         end
 
         # the template directory located inside the your retrospec plugin gem

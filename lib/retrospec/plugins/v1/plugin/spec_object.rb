@@ -16,8 +16,13 @@ module Foreman
       @module_path
     end
 
+    # normal name should be snake case
     def plugin_name
       instance[:name]
+    end
+
+    def plugin_name_camel
+      instance[:name].camel_case
     end
   end
 end
