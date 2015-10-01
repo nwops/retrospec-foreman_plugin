@@ -78,6 +78,11 @@ module Retrospec
                 # render any file ending in .retrospec_erb as a template
                 dest = dest.gsub(/\.retrospec\.erb/, '')
                 safe_create_template_file(dest, template, spec_object)
+              elsif template =~ /\.erb/
+                original_text = File.read(template)
+                text = original_text.gsub('foreman_plugin_template', spec_object.plugin_name)
+                text = text.gsub('ForemanPluginTemplate', spec_object.plugin_name.camel_case)
+                safe_create_file(dest, text)
               else
                 safe_copy_file(template, dest)
               end
