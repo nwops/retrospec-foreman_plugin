@@ -15,12 +15,12 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
   gem.name = "retrospec-foreman_plugin"
-  gem.homepage = ""
+  gem.homepage = "https://github.com/nwops/retrospec-foreman_plugin"
   gem.license = "MIT"
-  gem.summary = %Q{quick summary of your plugin}
-  gem.description = %Q{longer description of your gem}
-  gem.email = "you@somebody.com"
-  gem.authors = ["your name"]
+  gem.summary = %Q{Automates the creation of foreman plugins}
+  gem.description = %Q{Automates the creation of foreman plugins}
+  gem.email = "corey@logicminds.biz"
+  gem.authors = ["Corey Osman"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new

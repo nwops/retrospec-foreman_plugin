@@ -18,6 +18,11 @@ bundle exec rake spec
 
 `retrospec -m /tmp/test4 foreman_plugin -h`
 
+or 
+
+`retrospec -m /tmp/monitor foreman_plugin -n foreman_monitor`
+
+
 ## Contributing to retrospec-foreman_plugin
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.

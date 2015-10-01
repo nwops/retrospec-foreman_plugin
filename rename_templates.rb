@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'find'
-template_path = '/Users/cosman/.retrospec/foreman_plugin/lib/retrospec/plugins/v1/plugin/templates/module_files'
+template_path = 'lib/retrospec/plugins/v1/plugin/templates/module_files'
 require 'fileutils'
 files = Find.find(template_path).reject {|f| f =~ /\.erb/ }
 
