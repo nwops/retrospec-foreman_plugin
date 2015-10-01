@@ -12,7 +12,22 @@ bundle exec rake spec
 
 ## Install
 
+Not available in rubygems yet
+
 `gem install retrospec-foreman_plugin`
+
+## Install from source
+
+```shell
+bundle install
+bundle exec rake build
+gem install pkg/retrospec-foreman_plugin-0.1.0.gem
+
+```
+
+## Building
+
+`bundle exec rake build`
 
 ## Usage
 
